@@ -9,10 +9,6 @@ export const usersTable = sqliteTable("users", {
   username: text().unique().notNull(),
   bio: text(),
   password: text(),
-  avatar_url: text(),
-  role: text({ enum: ["admin", "player"] })
-    .notNull()
-    .default("player"),
   created_at: text()
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
