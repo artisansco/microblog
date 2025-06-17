@@ -21,8 +21,7 @@ app.use(
 
 app.get("/", (c) => c.json({ message: "Hello Hono!" }));
 
-
 //auth router
-app.route("/api/v1", authRouter)
+app.route("/api/v1", authRouter);
 
 export default app;
