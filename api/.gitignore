@@ -29,6 +29,5 @@ lerna-debug.log*
 .DS_Store
 
 # drizzle
-drizzle.config.ts
-data.db
-data.*
+*.db
+*.db-*

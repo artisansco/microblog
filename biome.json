@@ -1,27 +1,23 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "vcs": {
-    "enabled": false,
-    "clientKind": "git",
-    "useIgnoreFile": false
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "ignore": ["node_modules", ".svelte-kit", "*.svelte"]
-  },
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "root": true,
   "formatter": {
+    "includes": ["**", "!node_modules", "!build", "!dist"],
     "enabled": true,
     "indentStyle": "space",
-    "lineWidth": 100,
-    "ignore": ["node_modules", ".svelte-kit"]
+    "lineWidth": 100
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
+    "includes": ["**", "!node_modules", "!build", "!dist"],
     "enabled": true,
     "rules": {
       "recommended": true,
+      "complexity": {
+        "noArguments": "error",
+        "noUselessCatch": "error",
+        "noUselessTernary": "error"
+      },
       "performance": {
         "recommended": true,
         "noDelete": "error"
@@ -32,13 +28,40 @@
         "noRedundantUseStrict": "warn",
         "useDefaultSwitchClauseLast": "warn",
         "useAwait": "warn"
+      },
+      "style": {
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error",
+        "noCommonJs": "error",
+        "noNegationElse": "error",
+        "noNestedTernary": "error",
+        "noNonNullAssertion": "error",
+        "useCollapsedElseIf": "error",
+        "useConst": "error"
+      },
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error"
+      },
+      "nursery": {
+        "noAwaitInLoop": "error",
+        "noUselessUndefined": "warn"
       }
     }
   },
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
-      "lineWidth": 100
+      "semicolons": "always",
+      "trailingCommas": "all"
     }
   }
 }

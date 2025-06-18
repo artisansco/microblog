@@ -1,0 +1,31 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+# pre-push:
+#   jobs:
+#     - name: packages audit
+#       tags:
+#         - frontend
+#         - security
+#       run: yarn audit
+#
+#     - name: gems audit
+#       tags:
+#         - backend
+#         - security
+#       run: bundle audit
+
+pre-commit:
+  # parallel: true
+  jobs:
+    - name: Check (lint and format) Web
+      run: npm run check {all_files}
+      root: "web/"
+      glob: "*.{js,ts,jsx,tsx}"
+
+    - name: Check (lint and format) Api
+      run: npm run check {all_files}
+      root: "api/"
+      glob: "*.{js,ts}"

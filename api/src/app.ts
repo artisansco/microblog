@@ -4,9 +4,10 @@ import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import { secureHeaders } from "hono/secure-headers";
 import { trimTrailingSlash } from "hono/trailing-slash";
-import authRouter from "./routes/auth.js";
 
-const app = new Hono();
+import auth from "./routes/auth.ts";
+
+const app = new Hono().basePath("/api/v1");
 
 app.use(logger());
 app.use(cors({ origin: "*" }));
@@ -20,8 +21,6 @@ app.use(
 );
 
 app.get("/", (c) => c.json({ message: "Hello Hono!" }));
-
-//auth router
-app.route("/api/v1", authRouter);
+app.route("/", auth);
 
 export default app;
