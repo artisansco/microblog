@@ -1,17 +1,66 @@
 import { Hono } from "hono";
-import { nanoid } from "nanoid";
-import { registerSchema } from "../validators/users.ts";
+import { loginSchema, registerSchema } from "../validators/users.ts";
 import { db } from "../db/drizzle.ts";
 import { usersTable } from "../db/schema.ts";
-import { and, eq, or } from "drizzle-orm";
+import {eq, or } from "drizzle-orm";
 import bcrypt from "bcryptjs";
+import { Jwt } from "hono/utils/jwt";
+import 'dotenv/config'
 
 const app = new Hono().basePath("/auth");
 
 app.post("/token", async (c) => {
-  const body = await c.req.json();
+  try{
+    const reqBody = await c.req.json()
 
-  return c.json({ data: { token: nanoid(), ...body } });
+    //validating the user input data
+    const result = loginSchema.safeParse(reqBody)
+    if(!result.success){
+      return c.json({
+        ok:false,
+        message:"invalid input data"
+      },404)
+    }
+
+    //geting the validated data
+    const {username, password} = result.data
+
+    //checking if the user exist
+    const user = await db.select().from(usersTable).where(eq(usersTable.username, username))
+    if(user.length === 0 ){
+      return c.json({
+        ok:false,
+        message:"invalid username",
+      }, 401)
+    }
+
+    //checking the password
+    const passwordMatch = await bcrypt.compare(password, user[0].password as string)
+    if(!passwordMatch){
+      return c.json({
+        ok:false,
+        message:"invalid password",
+      }, 401)
+    }
+
+    //creating the accessToken
+    const accessToken = await Jwt.sign({id:user[0].id, username:user[0].username, exp: 24 * 60 * 60}, process.env.JWT_SECRET as string, 'HS256')
+    console.log(accessToken)
+
+    //send success response to the user with the accessToken
+    return c.json({
+      ok:true,
+      message:"user login successfull",
+      data: accessToken,
+    }, 200)
+    
+  }catch(err){
+    console.log(err)
+    return c.json({
+      ok:false,
+      message:"internal server error",
+    },500)
+  }
 });
 
 app.post('/register', async(c) => {
