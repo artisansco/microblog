@@ -18,7 +18,6 @@
   "engineStrict": true,
   "dependencies": {
     "@hono/node-server": "^1.14.4",
-    "bcryptjs": "^3.0.2",
     "better-sqlite3": "^11.10.0",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.44.2",
@@ -27,11 +26,10 @@
     "zod": "^3.25.67"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.0.0",
-    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^24.0.3",
-    "drizzle-kit": "^0.31.1",
     "tsx": "^4.20.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@biomejs/biome": "2.0.0",
+    "drizzle-kit": "^0.31.1"
   }
 }
