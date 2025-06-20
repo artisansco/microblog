@@ -4,9 +4,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prepare": "npm i",
     "build:web": "npm run build --prefix web",
     "web": "npm run dev --prefix web",
     "api": "npm run dev --prefix api",
     "format": "npm run format --prefix web && npm run format --prefix api"
+  },
+  "devDependencies": {
+    "lefthook": "^1.11.14"
   }
 }
