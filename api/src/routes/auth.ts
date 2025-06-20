@@ -22,10 +22,7 @@ app.post("/token", async (c) => {
       return c.json({ error: "invalid username or password" }, 401);
     }
 
-    const token = await jwt.sign(
-      { id: user.id, exp: 24 * 60 * 60 * 1 },
-      config.JWT_SECRET_KEY,
-    );
+    const token = await jwt.sign({ id: user.id, exp: 24 * 60 * 60 * 1 }, config.JWT_SECRET_KEY);
 
     return c.json({ data: { token } });
   } catch (_e: unknown) {
