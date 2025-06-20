@@ -8,5 +8,8 @@
     "web": "npm run dev --prefix web",
     "api": "npm run dev --prefix api",
     "format": "npm run format --prefix web && npm run format --prefix api"
+  },
+  "devDependencies": {
+    "lefthook": "^1.11.14"
   }
 }
