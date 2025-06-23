@@ -4,7 +4,7 @@ export default function LoginPage() {
   return (
     <>
       <section className="mx-auto max-w-5xl">
-        <Form action="/login" method="POST">
+        <Form action="/login" method="post">
           <legend className="mb-5 font-bold text-3xl">Sign In</legend>
 
           <fieldset className="space-y-5">
