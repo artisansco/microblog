@@ -2,6 +2,7 @@
   "name": "api",
   "type": "module",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
     "dev": "tsx watch index.ts",
     "build": "tsc",
@@ -19,17 +20,16 @@
   "dependencies": {
     "@hono/node-server": "^1.14.4",
     "bcryptjs": "^3.0.2",
-    "better-sqlite3": "^11.10.0",
+    "better-sqlite3": "^12.1.1",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.44.2",
-    "hono": "^4.7.11",
+    "hono": "^4.8.3",
     "nanoid": "^5.1.5",
     "zod": "^3.25.67"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.0.0",
-    "@types/node": "^24.0.3",
-    "drizzle-kit": "^0.31.1",
+    "@types/node": "^24.0.4",
+    "drizzle-kit": "^0.31.3",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }

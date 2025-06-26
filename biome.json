@@ -1,15 +1,15 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
   "root": true,
   "formatter": {
-    "includes": ["**", "!node_modules", "!build", "!dist"],
+    "includes": ["**", "!node_modules", "!build", "!dist", "!.svelte-kit"],
     "enabled": true,
     "indentStyle": "space",
     "lineWidth": 100
   },
   "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
-    "includes": ["**", "!node_modules", "!build", "!dist"],
+    "includes": ["**", "!node_modules", "!build", "!dist", "!.svelte-kit"],
     "enabled": true,
     "rules": {
       "recommended": true,
