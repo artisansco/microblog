@@ -4,11 +4,16 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build:web": "npm run build --prefix web",
-    "web": "npm run dev --prefix web",
-    "api": "npm run dev --prefix api",
-    "format": "npm run format --prefix web && npm run format --prefix api"
+    "install": "npm i -ws=web && npm i -ws=api",
+    "web": "npm run dev --workspace=web",
+    "api": "npm run dev --workspace=api",
+    "format": "npm run check --workspace=web && npm run check --workspace=api"
   },
+  "workspaces": [
+    "web",
+    "api",
+    "shared"
+  ],
   "devDependencies": {
     "lefthook": "^1.11.14"
   }
