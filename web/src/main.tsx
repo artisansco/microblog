@@ -3,12 +3,19 @@ import { type Container, createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import "./index.css";
+import { loginAction } from "./lib/actions/auth-action.ts";
 import Homepage from "./routes/index.tsx";
+import LoginPage from "./routes/login.tsx";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Homepage />,
+	},
+	{
+		path: "/login",
+		element: <LoginPage />,
+		action: loginAction,
 	},
 ]);
 
