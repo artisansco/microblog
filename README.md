@@ -1,10 +1,10 @@
 # microblog
 This project is a modern reimplementation of the famous [Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) by [Miguel Grinberg](https://miguelgrinberg.com/), rebuilt from the ground up using a modern full-stack JavaScript ecosystem:
 
-- **Frontend**: [SvelteKit](https://kit.svelte.dev/)  
-- **Styling**: [TailwindCSS](https://tailwindcss.com/)  
-- **Backend API**: [Hono](https://hono.dev/) (lightweight web framework for Node.js and Deno)  
-- **Database**: [SQLite](https://sqlite.org/) via [Drizzle ORM](https://orm.drizzle.team/) (or your preferred SQLite library)  
+- **Frontend**: [SvelteKit](https://kit.svelte.dev/)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/)
+- **Backend API**: [Hono](https://hono.dev/) (lightweight web framework for Node.js and Deno)
+- **Database**: [SQLite](https://sqlite.org/) via [Drizzle ORM](https://orm.drizzle.team/)
 
 ---
 
@@ -56,13 +56,7 @@ cd microblog
 2. Install deps
 You'll need Node.js (18+).
 ```bash
-# Frontend
-cd web
-npm install
-
-# Backend
-cd ../api
-npm install
+npm install # installs all deps in both folders
 ```
 
 3. Initialize/seed db
